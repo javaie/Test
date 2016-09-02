@@ -1,0 +1,22 @@
+if (StringUtils.hasText(trademarkReg.getApplyCategory()))
+{
+    String applyCategoryName = trademarkReg.getApplyCategory().trim();
+    if (StringUtils.hasText(applyCategoryName))
+    {
+        try
+        {
+            int v = Integer.parseInt(applyCategoryName);
+            if (v <= 45 && v >= 1)
+            {
+                if (v < 10)
+                {
+                    applyCategoryName = "0" + v;
+                }
+            }
+        } catch (Exception e)
+        {
+        }
+    }
+    trademarkReg.setApplyCategoryName(applyCategoryName);
+    trademarkReg.setApplyCategory(applyCategoryMap.get(applyCategoryName));
+}
